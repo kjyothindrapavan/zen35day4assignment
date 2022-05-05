@@ -93,3 +93,31 @@ let jsonObj2 = {
 };
 
 console.log(compareObjects(jsonObj1,jsonObj2));
+
+//2.Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
+let xhr = new XMLHttpRequest();
+xhr.open("GET","https://restcountries.com/v2/all",true);
+xhr.responseType = "json";
+xhr.onload = () => {
+    let countries = xhr.response;
+    for(let country of countries) {
+        console.log(`name: ${country.name}
+        flag: ${country.flags.png}`);
+    }
+}
+xhr.send();
+
+//3. Use the same rest countries and print all countries name, region, sub region and population
+let xhr2 = new XMLHttpRequest();
+xhr.open("GET","https://restcountries.com/v2/all",true);
+xhr.responseType = "json";
+xhr.onload = () => {
+    let countries = xhr.response;
+    for(let country of countries) {
+        console.log(`name: ${country.name}
+        region: ${country.region}
+        subregion: ${country.subregion}
+        population: ${country.population}`);
+    }
+}
+xhr.send();
