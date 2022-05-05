@@ -109,10 +109,10 @@ xhr.send();
 
 //3. Use the same rest countries and print all countries name, region, sub region and population
 let xhr2 = new XMLHttpRequest();
-xhr.open("GET","https://restcountries.com/v2/all",true);
+xhr2.open("GET","https://restcountries.com/v2/all",true);
 xhr.responseType = "json";
-xhr.onload = () => {
-    let countries = xhr.response;
+xhr2.onload = () => {
+    let countries = xhr2.response;
     for(let country of countries) {
         console.log(`name: ${country.name}
         region: ${country.region}
@@ -120,4 +120,4 @@ xhr.onload = () => {
         population: ${country.population}`);
     }
 }
-xhr.send();
+xhr2.send();
